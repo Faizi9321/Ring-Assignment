@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="RingAssign.css">
+    <title>Ring Assigment</title>
+</head>
+<body>
+    <audio id="audio" src="beep-01a.mp3" autoplay="false" ></audio>
+    <div class="box1 displayed"></div>
+    <div class="box2 displayed">
+    <div class="circle1" onclick='func1()'>
+        <p>1</p>
+        <canvas class="canvas1"></canvas>
+    </div>
+    <div class="circle2" onclick='func2()'>
+        <p>2</p>
+        <canvas class="canvas2"></canvas>
+        
+    </div>
+    <div class="circle3" onclick='func3()'>
+        <p>3</p>
+        <canvas class="canvas3"></canvas>
+       
+    </div>
+    <div class="circle4" onclick='func4()'>
+        <p>4</p>
+        <canvas class="canvas4"></canvas>
+       
+    </div>
+    <div class="circle5" onclick='func5()'>
+        <p>5</p>
+        <canvas class="canvas5"></canvas>
+        
+    </div>
+    <div class="circle6" onclick='redDot()'>
+        <p>6</p>
+    </div>
+
+    <span class="c1" onclick='blueDot1()'></span>
+    <span class="c2" onclick='blueDot2()'></span>
+</div>
+<div class="box3 displayed">
+    <span class="msg"></span>
+</div>
+    
+</body>
+
+<script>
+
+    var points = [];
+    
+    var timerSet = setInterval(timeCount,1000);
+    function timeCount(){
+        var d = new Date();
+        var timer = d.toLocaleTimeString();
+        document.querySelector('.box3').innerHTML = `User Time Zone: </br> ${timer}`;
+    }
+    
+    var timeOut = setTimeout(function(){
+        alert('Your session expired - I am going to refresh the page now');
+        location.reload(true);
+    },120000);
+   
+    function displayArray(){
+      document.querySelector('.box1').innerHTML = `Total Points = ${points.length} </br> Series of Points: </br> ${points.join('</br>')} `;
+    }
+
+    function func1(){
+        alert("1st ring has 1 points");
+        var sound = document.getElementById("audio");
+          sound.play();
+        points.push('1 point');
+        var can1 = document.querySelector(".canvas1").getContext("2d"), pst = 0, dlt = 2;
+        can1.strokeStyle = "green";
+        can1.lineWidth = 5;
+
+        function drawWedge(can1, x, y, radius, percent) {
+        can1.beginPath();
+        can1.moveTo(x + radius, y);
+        can1.arc(x, y, radius, 0, 2 * Math.PI * percent /100);
+        can1.stroke();
+    }
+
+        (function loop() {
+         drawWedge(can1, 70, 70, 60, pst);
+        pst += dlt; if (pst <= 0 || pst >= 100) dlt = -dlt;
+        requestAnimationFrame(loop);
+        })();
+        displayArray();
+       
+    }
+    function func2(){
+        alert("2nd ring has 2 points");
+        var sound = document.getElementById("audio");
+          sound.play();
+          points.push('2 point');
+        var can2 = document.querySelector(".canvas2").getContext("2d"), pst = 0, dlt = 2;
+        can2.strokeStyle = "green";
+        can2.lineWidth = 5;
+
+        function drawWedge(can2, x, y, radius, percent) {
+        can2.beginPath();
+        can2.moveTo(x + radius, y);
+        can2.arc(x, y, radius, 0, 2 * Math.PI * percent /100);
+        can2.stroke();
+    }
+
+        (function loop() {
+         drawWedge(can2, 70, 70, 60, pst);
+        pst += dlt; if (pst <= 0 || pst >= 100) dlt = -dlt;
+        requestAnimationFrame(loop);
+        })();
+        displayArray();
+    }
+    function func3(){
+        alert("3rd ring has 3 points");
+        var sound = document.getElementById("audio");
+          sound.play();
+          points.push('3 point');
+        var can3 = document.querySelector(".canvas3").getContext("2d"), pst = 0, dlt = 2;
+        can3.strokeStyle = "green";
+        can3.lineWidth = 5;
+
+        function drawWedge(can3, x, y, radius, percent) {
+        can3.beginPath();
+        can3.moveTo(x + radius, y);
+        can3.arc(x, y, radius, 0, 2 * Math.PI * percent /100);
+        can3.stroke();
+    }
+
+        (function loop() {
+         drawWedge(can3, 70, 70, 60, pst);
+        pst += dlt; if (pst <= 0 || pst >= 100) dlt = -dlt;
+        requestAnimationFrame(loop);
+        })();
+        displayArray();
+    }
+    function func4(){
+        alert("4th ring has 4 points");
+        var sound = document.getElementById("audio");
+          sound.play();
+          points.push('4 point');
+        var can4 = document.querySelector(".canvas4").getContext("2d"), pst = 0, dlt = 2;
+        can4.strokeStyle = "green";
+        can4.lineWidth = 5;
+
+        function drawWedge(can4, x, y, radius, percent) {
+        can4.beginPath();
+        can4.moveTo(x + radius, y);
+        can4.arc(x, y, radius, 0, 2 * Math.PI * percent /100);
+        can4.stroke();
+    }
+
+        (function loop() {
+         drawWedge(can4, 70, 70, 60, pst);
+        pst += dlt; if (pst <= 0 || pst >= 100) dlt = -dlt;
+        requestAnimationFrame(loop);
+        })();
+        displayArray();
+    }
+    function func5(){
+        alert("5th ring has 5 points");
+        var sound = document.getElementById("audio");
+          sound.play();
+          points.push('5 point');
+        var can5 = document.querySelector(".canvas5").getContext("2d"), pst = 0, dlt = 2;
+        can5.strokeStyle = "green";
+        can5.lineWidth = 5;
+
+        function drawWedge(can5, x, y, radius, percent) {
+        can5.beginPath();
+        can5.moveTo(x + radius, y);
+        can5.arc(x, y, radius, 0, 2 * Math.PI * percent /100);
+        can5.stroke();
+        
+    }
+
+        (function loop() {
+         drawWedge(can5, 70, 70, 60, pst);
+        pst += dlt; if (pst <= 0 || pst >= 100) dlt = -dlt;
+        requestAnimationFrame(loop);
+        })();
+        displayArray();
+    }
+    function redDot(){
+        alert("Red dot has 6 points");
+        var sound = document.getElementById("audio");
+          sound.play();
+          points.push('6 point');
+        document.querySelector('.circle6').style.background = 'green';
+        displayArray();
+        
+    }
+    function blueDot1(){
+        alert("Light blue dots have 8 points");
+        var sound = document.getElementById("audio");
+          sound.play();
+        document.querySelector('.c1').style.background = 'red';
+        points.push('8 point');
+        displayArray();
+    }
+    function blueDot2(){
+        alert("Light blue dots have 8 points");
+        var sound = document.getElementById("audio");
+          sound.play();
+        document.querySelector('.c2').style.background = 'red';
+        points.push('8 point');
+        displayArray();
+    }
+   
+
+</script>
+
+</html>
